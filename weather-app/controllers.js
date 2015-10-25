@@ -1,6 +1,6 @@
 
 // SET YOUR CONTROLLER
-weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', function($scope, $resource,cityService){
+weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', '$location', function($scope, $resource,cityService, $location){
 
   console.log($scope);
 
@@ -13,7 +13,13 @@ weatherApp.controller('homeController', ['$scope', '$resource', 'cityService', f
     // UPDATE 'cityService' WITH CURRENT SCOPE'S VALUE
     cityService.city = $scope.city
 
-  })
+  });
+
+  $scope.submit = function() {
+
+    $location.path('/forecast');
+
+  };
 
 }]);
 
